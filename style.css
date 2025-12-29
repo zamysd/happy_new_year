@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #050a14;
+    --text-color: #ffffff;
+    --accent-color: #ffd700;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#fireworksCanvas {
+    z-index: 2;
+    pointer-events: none;
+    /* Let clicks pass through */
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1,
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-size: 2.5rem;
+    /* Increased for cursive readability */
+    letter-spacing: 1px;
+    opacity: 0.95;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+}
+
+.message-text {
+    /* Great Vibes is already italic-like, so font-style italic is redundant but harmless. 
+       Removing it to rely on the font's natural slant. */
+    font-style: normal;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--glass-bg);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.time-box span:first-child {
+    font-size: 3.5rem;
+    /* Larger for the numbers in this font */
+    font-weight: normal;
+    font-family: 'Great Vibes', cursive;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+/* Greeting */
+.glow-text {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px var(--accent-color);
+    animation: glow 3s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px var(--accent-color);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px var(--accent-color);
+    }
+}
+
+/* Buttons */
+.btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Wish Box */
+.wish-box {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    resize: none;
+    font-size: 1rem;
+}
+
+textarea:focus {
+    outline: 1px solid var(--accent-color);
+}
+
+/* Envelope (CSS Art) */
+#envelope {
+    width: 100px;
+    height: 60px;
+    background: #fff;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+    /* JS will toggle this or use opacity */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .glow-text {
+        font-size: 2.5rem;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .time-box {
+        padding: 10px;
+        min-width: 60px;
+    }
+
+    .time-box span:first-child {
+        font-size: 1.5rem;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    z-index: 20;
+    letter-spacing: 1px;
+}

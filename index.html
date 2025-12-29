@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Wish - New Year 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap"
+        rel="stylesheet">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <canvas id="starCanvas"></canvas>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <div class="container">
+        <!-- Countdown Section -->
+        <div id="countdown-section">
+            <p class="title message-text">
+                "Hi my love, since this New Year’s Eve finds us miles apart and I don’t quite know what to do, let’s
+                welcome the New Year together here, counting down side by side. After that, let’s whisper our hopes and
+                dreams for 2026"
+            </p>
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Greeting Section (Initially Hidden) -->
+        <div id="greeting-section" class="hidden">
+            <h1 class="glow-text">Happy New Year!</h1>
+            <p class="subtitle">May your dreams take flight in 2026</p>
+
+            <button id="show-wish-btn" class="btn">Make a Wish</button>
+        </div>
+
+        <!-- Wish Box (Initially Hidden) -->
+        <div id="wish-container" class="hidden">
+            <div class="wish-box" id="wish-box">
+                <h2>Write your wish...</h2>
+                <textarea id="wish-text" placeholder="I hope for..."></textarea>
+                <button id="send-wish-btn" class="btn">Send to the Stars</button>
+            </div>
+            <div id="envelope" class="hidden">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+            </div>
+            <div id="confirmation-msg" class="hidden">
+                <p>Your wish has been sent to the stars.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">Made with <span style="color: #e25555;">&hearts;</span> by Zamil for You</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
